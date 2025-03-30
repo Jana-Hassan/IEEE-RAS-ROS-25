@@ -7,6 +7,4 @@ while True:
 if Nums:
    print(max(Nums), min(Nums))
 else:
-    print("No valid numbers entered.")
-
-
+    print("No Numbers Entered!")
