@@ -9,10 +9,9 @@ def word_counter():
         for l in f:
             l = l.strip()
             l = l.lower()
-
-            line_words = l.split(" ")
+            line = l.split(" ")
             
-            for w in line_words:
+            for w in line:
                 if w:
                     words.append(w)
     
@@ -23,7 +22,6 @@ def word_counter():
             w_counter[w] = words.count(w)
         
         if w_counter:
-            print("\nWord occurrences:")
             for word, count in w_counter.items():
                 print(f"{word}: {count}")
         else:
