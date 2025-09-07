@@ -1,0 +1,19 @@
+<launch>
+  <!-- Use simulation time from Gazebo -->
+  <param name="use_sim_time" value="true" />
+
+  <!-- Launch Gazebo with the world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find milestone2_robot)/worlds/maze_world.world" />
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+  </include>
+
+  <!-- Node for fusing LiDAR + Ultrasonic data -->
+  <node name="fusion_node" pkg="milestone2_robot" type="fusion_node.py" output="screen" />
+
+  <!-- Node for obstacle avoidance -->
+  <node name="avoidance_node" pkg="milestone2_robot" type="obstacle_avoidance.py" output="screen" />
+
+</launch>
